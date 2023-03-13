@@ -1,8 +1,8 @@
 '''
 Author: wxy
 Date: 2023-03-07 10:10:36
-LastEditors: wxy
-LastEditTime: 2023-03-12 16:10:30
+LastEditors: sherrywaan sherrywaan@outlook.com
+LastEditTime: 2023-03-13 16:22:13
 Description: 
 FilePath: /share/dataset/MHAD_Berkeley/stereo_camera/MHAD_Berkeley_preprocess/python/check_dataset.py
 '''
@@ -31,24 +31,25 @@ def check_multiview_data(src, frame_e_f):
             if f_num%3 != 0 :
                 os.remove(os.path.join(src_f, f))
     
-    # delete files whose same frame missed in other views
-    frames_err = []
-    with open(frame_e_f, 'r') as fi:
-        for line in fi:
-            line_list = line.split('\t')
-            s = int(line_list[0])
-            a = int(line_list[1])
-            r = int(line_list[2])
-            c = int(line_list[3])
-            f = int(line_list[4])
-            frames_err.append([s,a,r,c,f])
+    # data missing problem is fixed by MHAD team
+    # # delete files whose same frame missed in other views
+    # frames_err = []
+    # with open(frame_e_f, 'r') as fi:
+    #     for line in fi:
+    #         line_list = line.split('\t')
+    #         s = int(line_list[0])
+    #         a = int(line_list[1])
+    #         r = int(line_list[2])
+    #         c = int(line_list[3])
+    #         f = int(line_list[4])
+    #         frames_err.append([s,a,r,c,f])
     
-    for frame_err in frames_err:
-        for c in range(4):
-            c =c +1          
-            fi = os.path.join(src, 'Cam%02d'%(c), 'S%02d'%(frame_err[0]), 'A%02d'%(frame_err[1]), 'R%02d'%(frame_err[2]), 'img_l01_c%02d_s%02d_a%02d_r%02d_%05d.jpg'%(c,frame_err[0],frame_err[1],frame_err[2],frame_err[4]))
-            if os.path.exists(fi):
-                os.remove(fi)
+    # for frame_err in frames_err:
+    #     for c in range(4):
+    #         c =c +1          
+    #         fi = os.path.join(src, 'Cam%02d'%(c), 'S%02d'%(frame_err[0]), 'A%02d'%(frame_err[1]), 'R%02d'%(frame_err[2]), 'img_l01_c%02d_s%02d_a%02d_r%02d_%05d.jpg'%(c,frame_err[0],frame_err[1],frame_err[2],frame_err[4]))
+    #         if os.path.exists(fi):
+    #             os.remove(fi)
 
 
 def check_multiview_pair_datalen(src):
