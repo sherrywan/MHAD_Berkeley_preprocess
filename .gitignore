@@ -1,0 +1,15 @@
+# Log file
+/logs
+
+# model
+*.pth
+
+# images
+*.jpg
+*.png
+
+# experiments
+*.csv
+*.xls
+*.xlsx
+*.txt
