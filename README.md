@@ -18,5 +18,4 @@
 3.run pgm2jpg.m to transform from pgm files to jpg files
 
 ## data checking
-1. run python/check_dataset.py to check projection parameters, multiview data pair size  
-if you want to check the projection parameters, please mkdir test/Cam_i and add corresponding imgaes to them
+1. run python/check_dataset.py to check projection parameters, multiview data pair size (if you want to check the projection parameters, please mkdir test/Cam_i and add corresponding imgaes to them)
